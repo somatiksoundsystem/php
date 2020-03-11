@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo composer $@
+docker run --rm --interactive --tty \
+  --volume $PWD:/app composer $@

@@ -1,12 +1,21 @@
+# OS Specific
 .DS_Store
+Thumbs.db
+
+# IDE Specific
 .idea
+*.sublime*
+
+# Other
 *.ai
 *.log
 *.pdf
 *.psd
-*.sublime*
-Thumbs.db
+
+# PHP Specific
 vendor
 bin
-
 uploads
+
+# Env specific
+.env
