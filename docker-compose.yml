@@ -27,12 +27,14 @@ services:
     command: install
 
   php-fpm:
-    image: zeckson/php-fpm:0.4
+    image: zeckson/php-fpm:0.5
     build:
       context: ./.docker/php-fpm
+    ports:
+      - "9001:9001"
     volumes:
       - .:/application
-      - ./.docker/php-fpm/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
+      - ./.docker/php-fpm/php-ini-overrides.ini:/usr/local/etc/php/php.ini
 
 networks:
   code-network:
