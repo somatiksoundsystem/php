@@ -5,7 +5,7 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 $log = new Monolog\Logger('name');
-$log->pushHandler(new Monolog\Handler\StreamHandler(__DIR__.'/app.log', Monolog\Logger::WARNING));
+$log->pushHandler(new Monolog\Handler\StreamHandler(__DIR__.'/logs/app.log', Monolog\Logger::WARNING));
 $log->log(Monolog\Logger::WARNING, 'Started: ' . getenv('TEST'));
 ?>
 <!DOCTYPE html>
