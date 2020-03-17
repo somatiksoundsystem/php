@@ -18,8 +18,6 @@ services:
     image: zeckson/php-fpm:0.5
     build:
       context: ./.docker/php-fpm
-    ports:
-      - 9001:9001
     depends_on:
       - mysql
     volumes:
