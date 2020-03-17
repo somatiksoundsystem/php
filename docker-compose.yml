@@ -8,19 +8,35 @@ services:
       - MYSQL_DATABASE=main
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=admin
+    volumes:
+    - ./data:/var/lib/mysql
     # Uses port 3306
-    networks:
-      - code-network
+    ports:
+      - 3306:3306
+
+  php-fpm:
+    image: zeckson/php-fpm:0.5
+    build:
+      context: ./.docker/php-fpm
+    ports:
+      - 9001:9001
+    depends_on:
+      - mysql
+    volumes:
+      - .:/application
+      - ./.docker/php-fpm/php-ini-overrides.ini:/usr/local/etc/php/php.ini
 
   webserver:
     image: nginx:alpine
     restart: always
+    depends_on:
+      - php-fpm
     volumes:
       - .:/application
       - ./../somatik/build:/static
       - ./.docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
     ports:
-      - "8080:80"
+      - 8080:80
 
   composer:
     image: composer
@@ -28,16 +44,9 @@ services:
       - .:/app
     command: install
 
-  php-fpm:
-    image: zeckson/php-fpm:0.5
-    build:
-      context: ./.docker/php-fpm
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
     ports:
-      - "9001:9001"
-    volumes:
-      - .:/application
-      - ./.docker/php-fpm/php-ini-overrides.ini:/usr/local/etc/php/php.ini
-
-networks:
-  code-network:
-    driver: bridge
+      - 8090:80
+    depends_on:
+      - mysql
