@@ -16,6 +16,8 @@ services:
 
   php-fpm:
     image: zeckson/php-fpm:0.5
+    environment:
+      - PHP_IDE_CONFIG=serverName=somatik-php
     build:
       context: ./.docker/php-fpm
     depends_on:
