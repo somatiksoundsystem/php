@@ -60,77 +60,7 @@
     </div>
 </header>
 <main class="main">
-    <div class="main__container">
-        <ul class="albums">
-            <li class="albums__item"><a class="albums__link" href="/album/escape"><img class="albums__img"
-                                                                                       src="/img/albums/thumb/album_escape.jpg"
-                                                                                       alt="Escape" width="300"
-                                                                                       height="300"/>
-                    <h3 class="albums__author">Dubsane</h3>
-                    <h2 class="albums__title">Escape</h2></a></li>
-            <li class="albums__item"><a class="albums__link" href="/album/girls"><img class="albums__img"
-                                                                                      src="/img/albums/thumb/album_girls.jpg"
-                                                                                      alt="Girls" width="300"
-                                                                                      height="300"/>
-                    <h3 class="albums__author">Dubsane</h3>
-                    <h2 class="albums__title">Girls</h2></a></li>
-            <li class="albums__item"><a class="albums__link" href="/album/dlya_orgii_i_horovodov"><img
-                        class="albums__img" src="/img/albums/thumb/album_dlya-orgij-i-horovodov.jpg"
-                        alt="Для Оргий И Хороводов" width="300" height="300"/>
-                    <h3 class="albums__author">Lem</h3>
-                    <h2 class="albums__title">Для Оргий И Хороводов</h2></a></li>
-            <li class="albums__item"><a class="albums__link" href="/album/neverendingstory"><img class="albums__img"
-                                                                                                 src="/img/albums/thumb/album_neverending-story.jpg"
-                                                                                                 alt="Neverendingstory"
-                                                                                                 width="300"
-                                                                                                 height="300"/>
-                    <h3 class="albums__author">Vova PCP</h3>
-                    <h2 class="albums__title">Neverendingstory</h2></a></li>
-            <li class="albums__item"><a class="albums__link" href="/album/remixes"><img class="albums__img"
-                                                                                        src="/img/albums/thumb/album_pcp-remixes.jpg"
-                                                                                        alt="Remixes" width="300"
-                                                                                        height="300"/>
-                    <h3 class="albums__author">Vova PCP</h3>
-                    <h2 class="albums__title">Remixes</h2></a></li>
-            <li class="albums__item"><a class="albums__link" href="/album/hidden_by_the_leaves"><img class="albums__img"
-                                                                                                     src="/img/albums/thumb/album_hidden-by-the-leaves.jpg"
-                                                                                                     alt="Hidden by the leaves"
-                                                                                                     width="300"
-                                                                                                     height="300"/>
-                    <h3 class="albums__author">Primary Substance</h3>
-                    <h2 class="albums__title">Hidden by the leaves</h2></a></li>
-            <li class="albums__item"><a class="albums__link" href="/album/dissocination"><img class="albums__img"
-                                                                                              src="/img/albums/thumb/album_dissocination.jpg"
-                                                                                              alt="Dissocination"
-                                                                                              width="300" height="300"/>
-                    <h3 class="albums__author">DOQTA</h3>
-                    <h2 class="albums__title">Dissocination</h2></a></li>
-            <li class="albums__item"><a class="albums__link" href="/album/luna"><img class="albums__img"
-                                                                                     src="/img/albums/thumb/album_luna.jpg"
-                                                                                     alt="Luna" width="300"
-                                                                                     height="300"/>
-                    <h3 class="albums__author">NPLM</h3>
-                    <h2 class="albums__title">Luna</h2></a></li>
-            <li class="albums__item"><a class="albums__link" href="/album/mashapov"><img class="albums__img"
-                                                                                         src="/img/albums/thumb/album_mashapov.jpg"
-                                                                                         alt="Mashapov" width="300"
-                                                                                         height="300"/>
-                    <h3 class="albums__author">Kashapov</h3>
-                    <h2 class="albums__title">Mashapov</h2></a></li>
-            <li class="albums__item"><a class="albums__link" href="/album/eat_my_face"><img class="albums__img"
-                                                                                            src="/img/albums/thumb/album_eat-my-face.jpg"
-                                                                                            alt="Eat my face"
-                                                                                            width="300" height="300"/>
-                    <h3 class="albums__author">Aedem</h3>
-                    <h2 class="albums__title">Eat my face</h2></a></li>
-            <li class="albums__item"><a class="albums__link" href="/album/raver_baby"><img class="albums__img"
-                                                                                           src="/img/albums/thumb/album_raver-baby.jpg"
-                                                                                           alt="Raver baby" width="300"
-                                                                                           height="300"/>
-                    <h3 class="albums__author">Aedem</h3>
-                    <h2 class="albums__title">Raver baby</h2></a></li>
-        </ul>
-    </div>
+
 </main>
 <script src="/scripts/navigation.js"></script>
 </body>
