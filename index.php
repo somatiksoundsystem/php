@@ -13,6 +13,7 @@ $log = new Monolog\Logger('name');
 $log->pushHandler(new Monolog\Handler\StreamHandler(__DIR__ . '/logs/app.log', Monolog\Logger::INFO));
 $log->log(Monolog\Logger::WARNING, 'Started: ' . getenv('TEST'));
 
+require_once __DIR__ . '/src/db.php';
 
 // Routing.
 $uri = $_SERVER['REQUEST_URI'];
@@ -35,7 +36,7 @@ $twig->addGlobal('current_page', $uri);
 
 $script = __DIR__ . '/public' . $uri . '.php';
 if (file_exists($script)) {
-    require $script;
+    require_once $script;
 } else {
     echo 'Not Found';
 }
