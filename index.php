@@ -1,6 +1,8 @@
 <?
 declare(strict_types=1);
 
+$PATH_DELIMITER = '/';
+
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
@@ -17,9 +19,11 @@ require_once __DIR__ . '/src/db.php';
 
 // Routing.
 $uri = $_SERVER['REQUEST_URI'];
-if ($uri === '/') {
+
+if ($uri === $PATH_DELIMITER) {
     $uri = '/index';
 }
+$paths = explode($PATH_DELIMITER, $uri);
 
 $log->log(Monolog\Logger::DEBUG, 'Requested URI: ' . $uri);
 
@@ -34,10 +38,19 @@ $twig = new Environment($loader, array(
 //$twig->addExtension(new Twig_Extensions_Extension_Text());
 $twig->addGlobal('current_page', $uri);
 
-$script = __DIR__ . '/public' . $uri . '.php';
-if (file_exists($script)) {
-    require_once $script;
-} else {
-    echo 'Not Found';
+$root = __DIR__ . '/public';
+$found = false;
+foreach ($paths as $idx => $path) {
+    $root = $root . '/' . $path;
+    $current = $root . '.php';
+    if (file_exists($current)) {
+        $found = true;
+        $_SERVER['PATH'] = array_slice($paths, $idx + 1);
+        require_once $current;
+        break;
+    }
+}
+if (!$found) {
+    require_once __DIR__ . '/public/404.php';
 }
 ?>

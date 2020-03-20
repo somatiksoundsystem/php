@@ -3,11 +3,9 @@
 {% block title %}Albums{% endblock %}
 
 {% block content %}
-    <div class="main__container">
-        <ul class="albums">
-            {% for album in albums %}
-                {{ include('block/album.twig', {album: album}, with_context=false) }}
-            {% endfor %}
-        </ul>
-    </div>
+    <ul class="albums">
+        {% for album in albums %}
+            {{ include('block/album.twig', {album: album}, with_context=false) }}
+        {% endfor %}
+    </ul>
 {% endblock %}
