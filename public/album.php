@@ -2,7 +2,6 @@
 declare(strict_types=1);
 
 $path = $_SERVER['PATH'][0];
-var_dump($path);
 
 $stmt = $DBH->prepare('SELECT * FROM main.albums WHERE id = :id');
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
