@@ -1,4 +1,6 @@
 <?php
+use Somatik\Album;
+
 /**
  * @var Album $album
  */
