@@ -5,8 +5,7 @@
   "require": {
     "vlucas/phpdotenv": "^4.1",
     "monolog/monolog": "^2.0",
-    "ext-pdo": "*",
-    "twig/twig": "^3.0"
+    "ext-pdo": "*"
   },
   "authors": [
     {
