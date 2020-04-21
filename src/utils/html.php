@@ -25,7 +25,18 @@ function mark_if_true(bool $condition, string $value = 'form__item--invalid'): s
  * @param $value
  * @return string
  */
-function h(&$value): string
+function h($value): string
 {
     return isset($value) ? htmlspecialchars($value, ENT_QUOTES) : '';
+}
+
+/**
+ * Prints date from utc
+ * @param $value
+ * @return string
+ */
+function release_date($value): string
+{
+    // TODO: fix date {{ album.released_at|date('d.m.Y') }}
+    return $value;
 }

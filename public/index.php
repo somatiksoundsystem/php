@@ -8,4 +8,4 @@ $STH = $DBH->query('SELECT * FROM main.albums');
 $STH->setFetchMode(PDO::FETCH_ASSOC);
 
 $content = include_template('albums.php', ['albums' => $STH->fetchAll()]);
-render_page(['title' => 'Albums', 'content' => $content], ['albums' => $STH->fetchAll()]);
+render_page(['title' => 'Albums', 'content' => $content]);
