@@ -37,6 +37,6 @@ function h($value): string
  */
 function release_date($value): string
 {
-    // TODO: fix date {{ album.released_at|date('d.m.Y') }}
-    return $value;
+    $date = strtotime($value);
+    return date('d.m.Y',$date);
 }
