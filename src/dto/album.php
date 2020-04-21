@@ -1,4 +1,8 @@
 <?php
+declare(strict_types=1);
+namespace Somatik;
+
+use PDO;
 
 class Album
 {
@@ -6,14 +10,14 @@ class Album
     public string $name;
     public string $image_url;
     public ?string $player_url;
-    public int $released_at;
+    public string $released_at;
 
     /**
      * Album constructor.
      */
     public function __construct()
     {
-        $this->released_at = strtotime($this->released_at);
+        $this->released_at = release_date(strtotime($this->released_at));
     }
 
     public static function load_by_id(int $id): Album

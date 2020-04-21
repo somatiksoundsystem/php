@@ -29,7 +29,7 @@
     </div>
     <!--        {# TODO: author#}-->
     <h2 class="album__author"><a class="albums__link" href="/artist/doqta">DOQTA</a></h2>
-    <h2 class="album__release-date">Release date: <?= release_date($album->released_at) ?></h2></div>
+    <h2 class="album__release-date">Release date: <?= $album->released_at ?></h2></div>
 <!--    {#TODO: fix player#}-->
 <div class="player">
     <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay"
