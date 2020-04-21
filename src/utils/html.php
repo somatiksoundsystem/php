@@ -32,11 +32,10 @@ function h($value): string
 
 /**
  * Prints date from utc
- * @param $value
+ * @param $timestamp
  * @return string
  */
-function release_date($value): string
+function release_date($timestamp): string
 {
-    $date = strtotime($value);
-    return date('d.m.Y',$date);
+    return date('d.m.Y',$timestamp);
 }

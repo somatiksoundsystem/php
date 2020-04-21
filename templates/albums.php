@@ -1,5 +1,5 @@
 <?php
-/** @var object[] $albums */
+/** @var array $albums */
 ?>
 <ul class="albums">
     <?php foreach ($albums as $album): ?>
