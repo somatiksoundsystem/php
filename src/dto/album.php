@@ -6,7 +6,7 @@ use PDO;
 
 class Album
 {
-    public string $id;
+    public int $id;
     public string $name;
     public string $image_url;
     public ?string $player_url;
@@ -24,17 +24,15 @@ class Album
     {
         global $DBH;
         $stmt = $DBH->prepare('SELECT * FROM main.albums WHERE id = :id');
-        $stmt->setFetchMode(PDO::FETCH_CLASS, __CLASS__);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt->fetch();
+        return $stmt->fetchObject(__CLASS__);
     }
 
     public static function getAll():array
     {
         global $DBH;
-        $stmt = $DBH->prepare('SELECT * FROM main.albums');
-        $stmt->execute();
+        $stmt = $DBH->query('SELECT * FROM main.albums');
         return $stmt->fetchAll(PDO::FETCH_CLASS, __CLASS__);
     }
 }
