@@ -17,5 +17,8 @@ vendor
 bin
 uploads
 
+# Local DB copy
+/data/mysql
+
 # Env specific
 .env
