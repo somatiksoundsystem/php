@@ -7,8 +7,7 @@ require_once __DIR__.'/base.php';
 class Album
 {
     use Base;
-    public static string $QUERY_ALL = 'SELECT * FROM main.albums';
-    public static string $QUERY_ONE = 'SELECT * FROM main.albums WHERE id = :id';
+    public static string $TABLE = 'main.albums';
 
     public string $name;
     public string $image_url;

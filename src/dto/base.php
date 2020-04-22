@@ -11,7 +11,9 @@ trait Base
     public static function getById(int $id): self
     {
         global $DBH;
-        $stmt = $DBH->prepare(self::$QUERY_ONE);
+        $table = self::$TABLE;
+        /** @noinspection SqlResolve */
+        $stmt = $DBH->prepare("SELECT * FROM $table WHERE id = :id");
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchObject(__CLASS__);
@@ -20,7 +22,8 @@ trait Base
     public static function getAll():array
     {
         global $DBH;
-        $stmt = $DBH->query(self::$QUERY_ALL);
+        $table = self::$TABLE;
+        $stmt = $DBH->query("SELECT * FROM $table");
         return $stmt->fetchAll(PDO::FETCH_CLASS, __CLASS__);
     }
 }

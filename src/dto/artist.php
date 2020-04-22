@@ -9,8 +9,7 @@ class Artist
 {
     use Base;
 
-    public static string $QUERY_ALL = 'SELECT * FROM main.artists';
-    public static string $QUERY_ONE = 'SELECT * FROM main.artists WHERE id = :id';
+    public static string $TABLE = 'main.artists';
 
     public string $nickname;
     public string $name;
