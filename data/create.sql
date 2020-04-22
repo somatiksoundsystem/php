@@ -102,4 +102,10 @@ VALUES ('Arthur Tourenism', 'Arthur Mikhe Tourenism',
        ('Costas Alexas', 'Ivanov Ivan Invanovich', 'Consequuntur omnis non qui voluptatem praesentium libero eos non. Quibusdam vitae
         aperiam inventore itaque sapiente rerum laboriosam accusamus. Non molestiae voluptas nobis possimus est
         expedita. Impedit repellendus repellat voluptas fugit. In consectetur ipsum qui. Dolorem mollitia voluptatem
-        provident reprehenderit.', 'default.png')
+        provident reprehenderit.', 'default.png');
+
+SET @dubsane = -1;
+SELECT id FROM artists WHERE nickname = 'Dubsane' INTO @dubsane;
+SELECT @dubsane;
+INSERT INTO social_links(owner_id, name, value)
+VALUES (@dubsane, 'vk', 'https://vk.com/dubsane')
