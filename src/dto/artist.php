@@ -1,8 +1,9 @@
 <?php
 declare(strict_types=1);
+
 namespace Somatik;
 
-require_once __DIR__.'/base.php';
+require_once __DIR__ . '/base.php';
 
 class Artist
 {
@@ -24,5 +25,10 @@ class Artist
     public function __construct()
     {
         $this->created_at = release_date(strtotime($this->created_at));
+    }
+
+    function getPlayerUrl(): string
+    {
+        return "http://heyhey";
     }
 }
