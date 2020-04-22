@@ -4,6 +4,7 @@
  * @var string $content
  */
 ?>
+<!--suppress HtmlUnknownTarget -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +22,7 @@
     <meta property="og:image:height" content="400">
     <meta property="og:image:alt" content="Somatik Sound System">
 
-    <title><?= h($title) ?> - Somatik Sound System</title>
+    <title><?= strip_tags($title) ?> - Somatik Sound System</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
