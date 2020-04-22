@@ -1,8 +1,6 @@
 <?php
-use Somatik\Album;
-
 /**
- * @var Album $album
+ * @var Somatik\Album $album
  */
 ?>
 <li class="albums__item">
@@ -11,5 +9,5 @@ use Somatik\Album;
                                                                  alt="<?= $album->name ?>" width="300"
                                                                  height="300"/>
         <h3 class="albums__author"><?= empty($album->authors) ? 'Empty' : h($album->authors) ?></h3>
-        <h2 class="albums__title"><?= $album->name ?></h2></a>
+        <h2 class="albums__title"><?= h($album->name) ?></h2></a>
 </li>
