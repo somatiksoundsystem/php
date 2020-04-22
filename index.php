@@ -3,9 +3,6 @@ declare(strict_types=1);
 
 $PATH_DELIMITER = '/';
 
-use Twig\Environment;
-use Twig\Loader\FilesystemLoader;
-
 require __DIR__ . '/vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -27,16 +24,6 @@ $paths = explode($PATH_DELIMITER, $uri);
 
 $log->log(Monolog\Logger::DEBUG, 'Requested URI: ' . $uri);
 
-// Template rendering.
-$loader = new FilesystemLoader(__DIR__ . '/templates');
-$twig = new Environment($loader, array(
-    'cache' => __DIR__ . '/cache',
-    //'cache' => FALSE,
-    'debug' => true
-));
-//$twig->addExtension(new MyExtension());
-//$twig->addExtension(new Twig_Extensions_Extension_Text());
-$twig->addGlobal('current_page', $uri);
 
 $root = __DIR__ . '/public';
 $found = false;
