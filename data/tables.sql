@@ -32,6 +32,8 @@ CREATE TABLE social_links (
 
 CREATE TABLE albums (
     id          INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    image_url VARCHAR(255) NOT NULL,
     released_at TIMESTAMP DEFAULT NOW(),
 
     player_url  VARCHAR(1024) UNIQUE
