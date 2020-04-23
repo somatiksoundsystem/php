@@ -34,7 +34,7 @@ CREATE TABLE social_links
         'soundcloud',
         'discogs',
         'bandcamp')       NOT NULL,
-    value    VARCHAR(512) NOT NULL,
+    value    VARCHAR(512) UNIQUE NOT NULL,
 
     UNIQUE KEY (name, value)
 );

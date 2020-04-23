@@ -4,9 +4,16 @@ namespace Somatik;
 
 use PDO;
 
+require_once __DIR__.'/../db.php';
+
 trait Base
 {
     public int $id;
+
+    protected static function DBH(): PDO {
+        global $DBH;
+        return $DBH;
+}
 
     public static function getById(int $id): self
     {
