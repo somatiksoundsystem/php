@@ -10,5 +10,4 @@ $path = $_SERVER['PATH'][0];
 
 $id = intval($path);
 $artist = Artist::getById($id);
-$content = include_template('artist.php', ['artist' => $artist]);
-render_page(['title' => 'Artist ' . $artist->nickname, 'content' => $content]);
+render('artist.php', 'Artist ' . $artist->nickname, ['artist' => $artist]);

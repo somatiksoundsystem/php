@@ -26,9 +26,14 @@ function include_template(string $src, array $data = null): string
 }
 
 /**
- * @param array $page
+ * @param string $page
+ * @param string $title
+ * @param array $content
  */
-function render_page(array $page): void
+function render(string $page, string $title, array $content): void
 {
-    print include_template('layout.php', $page);
+    print include_template('layout.php', [
+        'title' => $title,
+        'content' => include_template($page, $content)
+    ]);
 }

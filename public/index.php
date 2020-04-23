@@ -8,5 +8,4 @@ use Somatik\Album;
 
 $albums = Album::getAll();
 
-$content = include_template('albums.php', ['albums' => $albums]);
-render_page(['title' => 'Albums', 'content' => $content]);
+render('albums.php','Albums', ['albums' => $albums]);

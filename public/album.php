@@ -10,5 +10,4 @@ $path = $_SERVER['PATH'][0];
 
 $id = intval($path);
 $album = Album::getById($id);
-$content = include_template('album.php', ['album' => $album]);
-render_page(['title' => 'Album ' . $album->name, 'content' => $content]);
+render('album.php', 'Album ' . $album->name, ['album' => $album]);

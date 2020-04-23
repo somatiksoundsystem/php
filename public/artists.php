@@ -6,5 +6,4 @@ require_once __DIR__ . '/../src/dto/artist.php';
 
 use Somatik\Artist;
 
-$content = include_template('artists.php', ['artists' => Artist::getAll()]);
-render_page(['title' => 'Artists', 'content' => $content]);
+render('artists.php', 'Artists', ['artists' => Artist::getAll()]);
