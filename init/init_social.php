@@ -3,6 +3,10 @@
 //var_dump($_SERVER);
 //var_dump($_GET);
 
+require __DIR__ . '/../vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/..');
+$dotenv->load();
 
 use Somatik\Artist;
 use Somatik\SocialLink;
