@@ -6,6 +6,17 @@ use PDO;
 
 require_once __DIR__.'/../db.php';
 
+/**
+ * Prints date from utc
+ * @param $timestamp
+ * @return string
+ */
+function release_date($timestamp): string
+{
+    return date('d.m.Y',$timestamp);
+}
+
+
 trait Base
 {
     public int $id;

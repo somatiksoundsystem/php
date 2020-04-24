@@ -14,9 +14,13 @@ class SocialLink
     const DISCOGS = 'discogs';
     const BANDCAMP = 'bandcamp';
 
+    public Artist $parent;
     public string $name;
     public string $value;
 
-
+    public function __construct($parent)
+    {
+        $this->parent = $parent;
+    }
 
 }

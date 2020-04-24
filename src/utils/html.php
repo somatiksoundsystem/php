@@ -29,13 +29,3 @@ function h($value): string
 {
     return isset($value) ? htmlspecialchars($value, ENT_QUOTES) : '';
 }
-
-/**
- * Prints date from utc
- * @param $timestamp
- * @return string
- */
-function release_date($timestamp): string
-{
-    return date('d.m.Y',$timestamp);
-}
