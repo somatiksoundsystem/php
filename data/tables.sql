@@ -16,7 +16,7 @@ CREATE TABLE artists
     nickname   VARCHAR(255) NOT NULL UNIQUE,
     name       VARCHAR(255) NOT NULL,
     email      VARCHAR(255) UNIQUE,
-    password   VARCHAR(60) CHARACTER SET binary,
+    password   VARCHAR(60) CHARACTER SET `BINARY`,
 
     info       LONGTEXT,
     photo_url  VARCHAR(255)
@@ -36,7 +36,8 @@ CREATE TABLE social_links
         'bandcamp')       NOT NULL,
     value    VARCHAR(512) UNIQUE NOT NULL,
 
-    UNIQUE KEY (name, value)
+    UNIQUE KEY (name, value),
+    UNIQUE KEY (owner_id, name)
 );
 
 CREATE TABLE albums
