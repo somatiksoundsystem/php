@@ -41,6 +41,31 @@ class Artist
         return $stmt->fetchObject(__CLASS__);
     }
 
+    function addAlbum(Album $album): bool
+    {
+        try {
+            $stmt = self::DBH()
+                ->prepare("INSERT INTO main.artist_albums(album_id, artist_id) VALUE (:album, :artist)");
+            $stmt->bindValue(':album', $album->id, PDO::PARAM_INT);
+            $stmt->bindValue(':artist', $this->id, PDO::PARAM_INT);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            error_log((string)$e);
+
+            return $e->getCode() === self::DUPLICATE_ENTITY;
+        }
+    }
+
+    function getAlbums(): array
+    {
+        $stmt = self::DBH()
+            ->prepare("SELECT albums.* FROM albums RIGHT JOIN artist_albums aa ON albums.id = aa.album_id WHERE aa.artist_id = :id");
+        $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_CLASS, Album::class);
+    }
+
     function addSocialLink(string $name, string $value): bool
     {
         try {
@@ -52,7 +77,7 @@ class Artist
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
-            error_log((string) $e);
+            error_log((string)$e);
 
             return $e->getCode() === self::DUPLICATE_ENTITY;
         }
