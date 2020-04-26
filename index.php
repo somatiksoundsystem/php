@@ -40,4 +40,8 @@ foreach ($paths as $idx => $path) {
 if (!$found) {
     require_once __DIR__ . '/public/404.php';
 }
+$time = microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"];
+
+echo "Loaded page $uri in $time seconds\n";
+
 ?>

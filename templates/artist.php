@@ -22,9 +22,13 @@
     <h1 class="artist__name"><?= h($artist->name) ?></h1>
     <p class="artist__info"><?= h($artist->info) ?></p>
 </div>
-<?= include_template('block/player.php', ['playerUrl' => $artist->getPlayerUrl()]) ?>
+<?= include_template(__DIR__ . '/block/player.php', ['playerUrl' => $artist->getPlayerUrl()]) ?>
 <div class="artist__albums">
-    <ul class="albums"></ul>
+    <? print_array($artist->getAlbums(), function ($content) {
+        echo "<ul class=\"albums\">", $content(function ($it) {
+            return include_template(__DIR__ . '/block/album.php', ['album' => $it]);
+        }), "</ul>";
+    }) ?>
 </div>
 <p class="artist__schedule"></p>
 <div class="photos__carousel"></div>

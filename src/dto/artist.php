@@ -7,6 +7,7 @@ use PDO;
 use PDOException;
 
 require_once __DIR__ . '/base.php';
+require_once __DIR__ . '/album.php';
 require_once __DIR__ . '/social_link.php';
 
 class Artist

@@ -4,10 +4,14 @@
  */
 ?>
 <li class="albums__item">
-    <a class="albums__link" href="/album/<?= $album->id ?>"><img class="albums__img"
-                                                                 src="/img/albums/thumb/<?= $album->image_url ?>"
-                                                                 alt="<?= $album->name ?>" width="300"
-                                                                 height="300"/>
-        <h3 class="albums__author"><?= empty($album->authors) ? 'Empty' : h($album->authors) ?></h3>
+    <a class="albums__link" href="/album/<?= urlencode($album->name) ?>"><img class="albums__img"
+                                                                              src="/img/albums/thumb/<?= $album->image_url ?>"
+                                                                              alt="<?= h($album->name) ?>" width="300"
+                                                                              height="300"/>
+        <? print_array($album->getArtists(), function ($content) {
+            echo "<h3 class=\"albums__author\">", $content(function ($it) {
+                return h($it->nickname);
+            }), "</h3>";
+        }) ?>
         <h2 class="albums__title"><?= h($album->name) ?></h2></a>
 </li>

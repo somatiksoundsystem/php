@@ -3,6 +3,6 @@
 ?>
 <ul class="albums">
     <?php foreach ($albums as $album): ?>
-        <?= include_template('block/album.php', ['album' => $album]) ?>
+        <?= include_template(__DIR__ . '/block/album.php', ['album' => $album]) ?>
     <?php endforeach; ?>
 </ul>

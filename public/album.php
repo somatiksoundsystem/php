@@ -8,6 +8,5 @@ use Somatik\Album;
 
 $path = $_SERVER['PATH'][0];
 
-$id = intval($path);
-$album = Album::getById($id);
+$album = Album::resolve(urldecode($path));
 render('album.php', 'Album ' . $album->name, ['album' => $album]);

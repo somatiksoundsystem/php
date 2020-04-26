@@ -24,10 +24,15 @@
             </svg>
         </a>
     </div>
-    <!--        {# TODO: author#}-->
-    <h2 class="album__author"><a class="albums__link" href="/artist/doqta">DOQTA</a></h2>
+    <h2 class="album__author">
+        <? print_array($album->getArtists(), function ($content) {
+            echo $content(function ($it) {
+                return '<a class="albums__link" href="/artist/'.urlencode($it->nickname).'">'.h($it->nickname).'</a>';
+            });
+        }) ?>
+    </h2>
     <h2 class="album__release-date">Release date: <?= $album->released_at ?></h2>
 </div>
 
-<?= include_template('block/player.php', ['playerUrl' => $album->player_url]) ?>
+<?= include_template(__DIR__ . '/block/player.php', ['playerUrl' => $album->player_url]) ?>
 

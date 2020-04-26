@@ -29,3 +29,13 @@ function h($value): string
 {
     return isset($value) ? htmlspecialchars($value, ENT_QUOTES) : '';
 }
+
+function print_array(array $array, ?callable $block) {
+    if (empty($array)) return;
+
+    $inner = function (callable $each) use ($array) {
+        return implode(',', array_map($each, $array));
+    };
+
+    $block($inner);
+}

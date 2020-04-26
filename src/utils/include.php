@@ -9,7 +9,6 @@ require_once __DIR__ . '/html.php';
  */
 function include_template(string $src, array $data = null): string
 {
-    $src = __DIR__ . '/../../templates/' . $src;
     if (!file_exists($src)) {
         trigger_error("Template was not found: {$src}", E_USER_ERROR);
     }
@@ -20,9 +19,7 @@ function include_template(string $src, array $data = null): string
     }
     require($src);
 
-    $result = ob_get_clean();
-
-    return $result;
+    return ob_get_clean();
 }
 
 /**
@@ -32,8 +29,8 @@ function include_template(string $src, array $data = null): string
  */
 function render(string $page, string $title, array $content): void
 {
-    print include_template('layout.php', [
+    print include_template(__DIR__ . '/../../templates/' . 'layout.php', [
         'title' => $title,
-        'content' => include_template($page, $content)
+        'content' => include_template(__DIR__ . '/../../templates/' . $page, $content)
     ]);
 }
