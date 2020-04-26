@@ -1,5 +1,4 @@
 <?php
-// TODO: make it inaccessible
 //var_dump($_SERVER);
 //var_dump($_GET);
 

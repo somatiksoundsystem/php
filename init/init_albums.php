@@ -1,0 +1,52 @@
+<?php
+//var_dump($_SERVER);
+//var_dump($_GET);
+
+use Somatik\Album;
+use Somatik\Artist;
+
+require_once __DIR__ . '/../src/dto/artist.php';
+require_once __DIR__ . '/../src/dto/album.php';
+
+$artist = Artist::resolve("Dubsane");
+$album = Album::resolve("Escape");
+$artist->addAlbum($album);
+$album = Album::resolve("Girls");
+$artist->addAlbum($album);
+$artist = Artist::resolve("Lem");
+$album = Album::resolve("Для Оргий И Хороводов");
+$artist->addAlbum($album);
+$artist = Artist::resolve("Dronum");
+$artist = Artist::resolve("Vova PCP");
+$album = Album::resolve("Neverendingstory");
+$artist->addAlbum($album);
+$album = Album::resolve("Remixes");
+$artist->addAlbum($album);
+$artist = Artist::resolve("Tsaritsa Logiki");
+$artist = Artist::resolve("Alex Cool");
+$artist = Artist::resolve("Office Passenger");
+$artist = Artist::resolve("Primary Substance");
+$album = Album::resolve("Hidden by the leaves");
+$artist->addAlbum($album);
+$artist = Artist::resolve("Kinestetic");
+$artist = Artist::resolve("DOQTA");
+$album = Album::resolve("Dissocination");
+$artist->addAlbum($album);
+$artist = Artist::resolve("NPLM");
+$album = Album::resolve("Luna");
+$artist->addAlbum($album);
+$artist = Artist::resolve("U3niko");
+$artist = Artist::resolve("Kashapov");
+$album = Album::resolve("Mashapov");
+$artist->addAlbum($album);
+$artist = Artist::resolve("Kansai");
+$artist = Artist::resolve("Bees And Cobras");
+$artist = Artist::resolve("Aedem");
+$album = Album::resolve("Eat my face");
+$artist->addAlbum($album);
+$album = Album::resolve("Raver baby");
+$artist->addAlbum($album);
+$artist = Artist::resolve("ICD");
+$artist = Artist::resolve("Cylriel");
+$artist = Artist::resolve("Dopesmoker");
+$artist = Artist::resolve("Costas Alexas");

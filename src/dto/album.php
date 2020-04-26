@@ -33,4 +33,15 @@ class Album
         return $stmt->fetchAll(PDO::FETCH_CLASS, Artist::class);
     }
 
+    public static function resolve(string $idOrName): Album
+    {
+        $stmt = self::DBH()->prepare("SELECT * FROM main.albums WHERE id = :id OR name = :idName");
+        $id = intval($idOrName) ?: -1;
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->bindValue(':idName', $idOrName, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchObject(__CLASS__);
+    }
+
+
 }
