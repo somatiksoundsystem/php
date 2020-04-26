@@ -8,6 +8,5 @@ use Somatik\Artist;
 
 $path = $_SERVER['PATH'][0];
 
-$id = intval($path);
-$artist = Artist::getById($id);
+$artist = Artist::resolve(urldecode($path));
 render('artist.php', 'Artist ' . $artist->nickname, ['artist' => $artist]);
