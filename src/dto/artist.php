@@ -8,14 +8,10 @@ use PDOException;
 
 require_once __DIR__ . '/base.php';
 require_once __DIR__ . '/album.php';
-require_once __DIR__ . '/social_link.php';
 
-class Artist
+class Artist extends Base
 {
-    use Base;
-
-    const DUPLICATE_ENTITY = 23000;
-    public static string $TABLE = 'main.artists';
+    public static string $TABLE = 'artists';
 
     public string $nickname;
     public string $name;
@@ -67,35 +63,8 @@ class Artist
         return $stmt->fetchAll(PDO::FETCH_CLASS, Album::class);
     }
 
-    function addSocialLink(string $name, string $value): bool
-    {
-        try {
-            $stmt = self::DBH()
-                ->prepare("INSERT INTO main.social_links(owner_id, name, value) VALUE (:id, :name, :value)");
-            $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
-            $stmt->bindValue(':name', $name, PDO::PARAM_STR);
-            $stmt->bindValue(':value', $value, PDO::PARAM_STR);
-            $stmt->execute();
-            return true;
-        } catch (PDOException $e) {
-            error_log((string)$e);
-
-            return $e->getCode() === self::DUPLICATE_ENTITY;
-        }
-
-    }
-
-    function getSocialLinks(): array
-    {
-        $stmt = self::DBH()
-            ->prepare("SELECT * FROM social_links WHERE owner_id = :id");
-        $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_CLASS, SocialLink::class, [$this]);
-    }
-
     function getPlayerUrl(): string
     {
-        return "http://heyhey";
+        return "https://api.soundcloud.com/tracks/614559213";
     }
 }

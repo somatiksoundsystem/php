@@ -10,13 +10,7 @@
                                                                       height="400">
     <div class="artist__social">
         <?php foreach ($artist->getSocialLinks() as $link): ?>
-            <a class="social-link" target="_blank"
-               href="<?= h($link->value) ?>">
-                <svg width="32" height="32">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                         xlink:href="/icon/bundle.min.svg#<?= $link->name ?>"></use>
-                </svg>
-            </a>
+            <?= include_template(__DIR__.'/block/social_link.php', ['link' => $link]) ?>
         <?php endforeach; ?>
     </div>
     <h1 class="artist__name"><?= h($artist->name) ?></h1>

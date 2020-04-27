@@ -8,8 +8,7 @@ CREATE DATABASE main
 
 USE main;
 
-CREATE TABLE artists
-(
+CREATE TABLE artists (
     id         INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     created_at TIMESTAMP DEFAULT NOW(),
 
@@ -22,9 +21,9 @@ CREATE TABLE artists
     photo_url  VARCHAR(255)
 );
 
-CREATE TABLE social_links
-(
-    owner_id INT UNSIGNED NOT NULL,
+CREATE TABLE social_links (
+    owner_id INT UNSIGNED             NOT NULL,
+    type     ENUM ('artists', 'albums') NOT NULL,
 
     name     ENUM (
         'vk',
@@ -33,15 +32,13 @@ CREATE TABLE social_links
         'instagram',
         'soundcloud',
         'discogs',
-        'bandcamp')       NOT NULL,
-    value    VARCHAR(512) UNIQUE NOT NULL,
+        'bandcamp')                   NOT NULL,
+    value    VARCHAR(512) UNIQUE      NOT NULL,
 
-    UNIQUE KEY (name, value),
-    UNIQUE KEY (owner_id, name)
+    UNIQUE KEY (owner_id, name, type)
 );
 
-CREATE TABLE albums
-(
+CREATE TABLE albums (
     id          INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name        VARCHAR(255) NOT NULL,
     image_url   VARCHAR(255) NOT NULL,
@@ -50,8 +47,7 @@ CREATE TABLE albums
     player_url  VARCHAR(1024) UNIQUE
 );
 
-CREATE TABLE artist_albums
-(
+CREATE TABLE artist_albums (
     album_id  INT UNSIGNED NOT NULL,
     artist_id INT UNSIGNED NOT NULL,
 

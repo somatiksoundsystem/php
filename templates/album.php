@@ -9,20 +9,10 @@
          src="/img/albums/thumb/<?= h($album->image_url) ?>"
          alt="<?= h($album->name) ?>" width="300"
          height="300">
-    <!--        {# TODO: social#}-->
     <div class="album__social">
-        <a class="social-link" target="_blank"
-           href="https://vk.com/music?z=audio_playlist16058189_73062618">
-            <svg width="32" height="32">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/icon/bundle.min.svg#vk"></use>
-            </svg>
-        </a><a class="social-link" target="_blank"
-               href="https://soundcloud.com/altabdubsane/sets/dubsane-escape">
-            <svg width="32" height="32">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                     xlink:href="/icon/bundle.min.svg#soundcloud"></use>
-            </svg>
-        </a>
+        <?php foreach ($album->getSocialLinks() as $link): ?>
+            <?= include_template(__DIR__.'/block/social_link.php', ['link' => $link]) ?>
+        <?php endforeach; ?>
     </div>
     <h2 class="album__author">
         <? print_array($album->getArtists(), function ($content) {

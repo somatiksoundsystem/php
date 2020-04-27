@@ -7,10 +7,9 @@ use PDO;
 require_once __DIR__.'/base.php';
 require_once __DIR__.'/artist.php';
 
-class Album
+class Album extends Base
 {
-    use Base;
-    public static string $TABLE = 'main.albums';
+    public static string $TABLE = 'albums';
 
     public string $name;
     public string $image_url;

@@ -1,11 +1,9 @@
 <?php
-
+declare(strict_types=1);
 namespace Somatik;
 
-class SocialLink
+class SocialLink extends Base
 {
-    use Base;
-
     const VK = "vk";
     const FB = "facebook";
     const YOUTUBE = 'youtube';
@@ -14,7 +12,7 @@ class SocialLink
     const DISCOGS = 'discogs';
     const BANDCAMP = 'bandcamp';
 
-    public Artist $parent;
+    public Base $parent;
     public string $name;
     public string $value;
 

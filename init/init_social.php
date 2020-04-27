@@ -2,15 +2,13 @@
 //var_dump($_SERVER);
 //var_dump($_GET);
 
-require __DIR__ . '/../vendor/autoload.php';
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/..');
-$dotenv->load();
-
+use Somatik\Album;
 use Somatik\Artist;
 use Somatik\SocialLink;
 
 require_once __DIR__ . '/../src/dto/artist.php';
+require_once __DIR__ . '/../src/dto/sociallink.php';
+require_once __DIR__ . '/../src/dto/album.php';
 
 $artist = Artist::resolve("Arthur Tourenism");
 $artist->addSocialLink(SocialLink::BANDCAMP, "https://tourenism.bandcamp.com/");
@@ -88,3 +86,6 @@ $artist = Artist::resolve("ICD");
 $artist = Artist::resolve("Cylriel");
 $artist = Artist::resolve("Dopesmoker");
 $artist = Artist::resolve("Costas Alexas");
+$album = Album::resolve("Escape");
+$album->addSocialLink(SocialLink::VK, "https://vk.com/music?z=audio_playlist16058189_73062618");
+$album->addSocialLink(SocialLink::SOUNDCLOUD, "https://soundcloud.com/altabdubsane/sets/dubsane-escape");
