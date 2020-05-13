@@ -1,4 +1,4 @@
-version: "3.1"
+version: "3.4"
 services:
 
   mysql:
@@ -9,7 +9,7 @@ services:
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=admin
     volumes:
-    - ./data/mysql:/var/lib/mysql
+      - ./data/mysql:/var/lib/mysql
     # Uses port 3306
     ports:
       - 3306:3306
@@ -39,6 +39,8 @@ services:
     ports:
       - 8080:80
 
+# Disabled services
+x-services:
   composer:
     image: composer
     volumes:

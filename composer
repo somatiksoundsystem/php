@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo composer $@
-docker-compose run composer $@
+docker run --rm --interactive --tty --volume $PWD:/app composer $@
