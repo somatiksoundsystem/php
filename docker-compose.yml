@@ -34,7 +34,7 @@ services:
       - php-fpm
     volumes:
       - .:/application
-      - ./../somatik/build:/static
+      - ./static/build:/static
       - ./.docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
     ports:
       - 8080:80
