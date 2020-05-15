@@ -2,6 +2,11 @@
 
 ## Usage
 
+### Cloning:
+```shell script
+git clone --recurse-submodules -j8 git@github.com:somatik-web/php.git
+```
+
 ### Running:
 ```shell script
 docker-compose up
