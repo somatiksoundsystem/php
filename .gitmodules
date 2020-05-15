@@ -1,3 +1,6 @@
 [submodule "static"]
 	path = static
 	url = git@github.com:somatik-web/www.git
+[submodule "admin"]
+	path = admin
+	url = git@github.com:somatik-web/admin.git
