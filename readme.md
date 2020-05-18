@@ -29,3 +29,4 @@ docker-compose run composer <command>
 ## Links
 - https://github.com/ineat/docker-php-nginx-postgres-composer
 - https://www.php.net/password_hash
+-  https://www.nginx.com/resources/wiki/start/topics/tutorials/config_pitfalls/
