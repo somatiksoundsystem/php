@@ -29,8 +29,8 @@ function include_template(string $src, array $data = null): string
  */
 function render(string $page, string $title, array $content): void
 {
-    print include_template(__DIR__ . '/../../templates/' . 'layout.php', [
+    print include_template(__TEMPLATES__ . '/layout.php', [
         'title' => $title,
-        'content' => include_template(__DIR__ . '/../../templates/' . $page, $content)
+        'content' => include_template(__TEMPLATES__ . '/' . $page, $content)
     ]);
 }

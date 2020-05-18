@@ -14,11 +14,13 @@ $DEFAULT_LOG->log(Monolog\Logger::WARNING, 'Started: ' . getenv('TEST'));
 
 require_once __ROOT__ . '/src/db.php';
 
-function route(string $publicDir)
+function route(string $home)
 {
+    define('__TEMPLATES__', $home . '/templates');
     global $DEFAULT_LOG;
     // Routing.
     $uri = $_SERVER['REQUEST_URI'];
+
 
     if ($uri === PATH_DELIMITER) {
         $uri = '/index';
@@ -27,6 +29,7 @@ function route(string $publicDir)
 
     $DEFAULT_LOG->log(Monolog\Logger::DEBUG, 'Requested URI: ' . $uri);
 
+    $publicDir = $home . '/public';
     $root = $publicDir;
     $found = false;
     foreach ($paths as $idx => $path) {
@@ -40,7 +43,12 @@ function route(string $publicDir)
         }
     }
     if (!$found) {
-        require_once $publicDir . '/error/404.php';
+        $not_found_page = $publicDir . '/error/404.php';
+        if (file_exists($not_found_page)) {
+            require_once $not_found_page;
+        } else {
+            http_response_code(404);
+        }
     }
     $time = microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"];
 
