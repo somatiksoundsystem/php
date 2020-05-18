@@ -58,7 +58,7 @@
                 <li class="navigation__item"><a class="navigation__link" href="/page-in-progress">Contacts</a></li>
             </ul>
             <button class="navigation__button navigation__button--nojs">
-                <div class="navigation__burger">Navigation button</div>
+                <span class="navigation__burger">Navigation button</span>
             </button>
         </nav>
     </div>
