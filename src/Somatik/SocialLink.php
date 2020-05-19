@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
-namespace Somatik;
+
+
+namespace App\Somatik;
 
 class SocialLink extends Base
 {

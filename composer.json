@@ -7,6 +7,9 @@
     "monolog/monolog": "^2.0",
     "ext-pdo": "*"
   },
+  "autoload": {
+    "psr-4": { "App\\": "src/" }
+  },
   "authors": [
     {
       "name": "Evgenii Shchepotev",

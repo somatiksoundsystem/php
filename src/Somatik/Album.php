@@ -1,11 +1,8 @@
 <?php
 declare(strict_types=1);
-namespace Somatik;
+namespace App\Somatik;
 
 use PDO;
-
-require_once __DIR__.'/base.php';
-require_once __DIR__.'/artist.php';
 
 class Album extends Base
 {

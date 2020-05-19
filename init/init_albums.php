@@ -2,11 +2,9 @@
 //var_dump($_SERVER);
 //var_dump($_GET);
 
-use Somatik\Album;
-use Somatik\Artist;
 
-require_once __DIR__ . '/../src/dto/artist.php';
-require_once __DIR__ . '/../src/dto/album.php';
+use App\Somatik\Album;
+use App\Somatik\Artist;
 
 $artist = Artist::resolve("Dubsane");
 $album = Album::resolve("Escape");

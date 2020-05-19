@@ -1,10 +1,9 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . '/../src/utils/include.php';
-require_once __DIR__ . '/../src/dto/album.php';
+use App\Somatik\Album;
 
-use Somatik\Album;
+require_once __DIR__ . '/../src/utils/include.php';
 
 $albums = Album::getAll();
 

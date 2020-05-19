@@ -2,13 +2,9 @@
 //var_dump($_SERVER);
 //var_dump($_GET);
 
-use Somatik\Album;
-use Somatik\Artist;
-use Somatik\SocialLink;
-
-require_once __DIR__ . '/../src/dto/artist.php';
-require_once __DIR__ . '/../src/dto/sociallink.php';
-require_once __DIR__ . '/../src/dto/album.php';
+use App\Somatik\Album;
+use App\Somatik\Artist;
+use App\Somatik\SocialLink;
 
 $artist = Artist::resolve("Arthur Tourenism");
 $artist->addSocialLink(SocialLink::BANDCAMP, "https://tourenism.bandcamp.com/");

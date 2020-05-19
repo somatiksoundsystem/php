@@ -1,13 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Somatik;
+
+namespace App\Somatik;
+
 
 use PDO;
 use PDOException;
-
-require_once __DIR__ . '/../db.php';
-require_once __DIR__ . '/sociallink.php';
 
 /**
  * Prints date from utc
