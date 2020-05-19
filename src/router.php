@@ -1,6 +1,12 @@
 <?
 declare(strict_types=1);
 
+// Set default timezone to Europe/Moscow
+date_default_timezone_set('Europe/Moscow');
+
+// Set default upload max size to 5MB in php.ini
+// upload_max_filesize(5 * 1024 * 1024);
+
 const PATH_DELIMITER = '/';
 
 require __ROOT__ . '/vendor/autoload.php';
@@ -10,7 +16,7 @@ $dotenv->load();
 
 $DEFAULT_LOG = new Monolog\Logger('default');
 $DEFAULT_LOG->pushHandler(new Monolog\Handler\StreamHandler('php://stdout', Monolog\Logger::DEBUG));
-$DEFAULT_LOG->log(Monolog\Logger::WARNING, 'Started: ' . getenv('TEST'));
+$DEFAULT_LOG->warning('Started: ' . getenv('TEST'));
 
 require_once __ROOT__ . '/src/db.php';
 
@@ -20,7 +26,6 @@ function route(string $home)
     global $DEFAULT_LOG;
     // Routing.
     $uri = $_SERVER['REQUEST_URI'];
-
 
     if ($uri === PATH_DELIMITER) {
         $uri = '/index';
@@ -52,5 +57,5 @@ function route(string $home)
     }
     $time = microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"];
 
-    echo "Loaded page $uri in $time seconds\n";
+    $DEFAULT_LOG->debug("Loaded page $uri in $time seconds\n");
 }

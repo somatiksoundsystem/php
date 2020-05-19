@@ -27,7 +27,7 @@ function include_template(string $src, array $data = null): string
  * @param string $title
  * @param array $content
  */
-function render(string $page, string $title, array $content): void
+function render(string $page, string $title, array $content = null): void
 {
     print include_template(__TEMPLATES__ . '/layout.php', [
         'title' => $title,
