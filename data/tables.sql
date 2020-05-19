@@ -15,7 +15,7 @@ CREATE TABLE artists (
     nickname   VARCHAR(255) NOT NULL UNIQUE,
     name       VARCHAR(255) NOT NULL,
     email      VARCHAR(255) UNIQUE,
-    password   VARCHAR(60) CHARACTER SET `BINARY`,
+    password   BINARY(60), # bcrypt uses 60-length fixed string
 
     info       LONGTEXT,
     photo_url  VARCHAR(255)

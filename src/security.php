@@ -1,5 +1,8 @@
 <?php
 declare(strict_types=1);
+
+use App\Somatik\Artist;
+
 const SESSION_CURRENT_USER = 'current_user';
 
 const NOT_FOUND_HTTP_STATUS_CODE = 404;
@@ -18,12 +21,12 @@ if (!isset($_SESSION[SESSION_CURRENT_USER])) {
     }
 }
 
-function set_session_current_user($user): void
+function set_session_current_user(Artist $user): void
 {
     $_SESSION[SESSION_CURRENT_USER] = $user;
 }
 
-function get_session_current_user(): ?array
+function get_session_current_user(): ?Artist
 {
     return $_SESSION[SESSION_CURRENT_USER] ?? null;
 }

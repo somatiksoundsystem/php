@@ -10,13 +10,15 @@ use Illuminate\Support\Facades\Validator;
  * ];
  * @param array $data
  * @param array $validationRules
- * @throws Exception
+ * @return array|null - errors or null
  */
-function validate(array $data, array $validationRules): void
+function validate(array $data, array $validationRules)
 {
     $validator = Validator::make($data, $validationRules);
 
-    if ($validationRules && $validator->fails()) {
-        throw new Exception($validator);
+    if ($validator->fails()) {
+        return $validator->failed();
     }
+
+    return null;
 }

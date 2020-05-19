@@ -23,6 +23,18 @@ VALUES ('Escape', TIMESTAMP(STR_TO_DATE('01.01.2018', '%d.%m.%Y')), 'album_escap
         DEFAULT),
        ('Remixes', TIMESTAMP(STR_TO_DATE('01.01.2016', '%d.%m.%Y')), 'album_pcp-remixes.jpg', DEFAULT);
 
+# create admins
+INSERT INTO artists (nickname, name, info, photo_url, email, password)
+VALUES ('Dubsane', 'Alex Palastrov', 'Consequuntur omnis non qui voluptatem praesentium libero eos non. Quibusdam vitae
+        aperiam inventore itaque sapiente rerum laboriosam accusamus. Non molestiae voluptas nobis possimus est
+        expedita. Impedit repellendus repellat voluptas fugit. In consectetur ipsum qui. Dolorem mollitia voluptatem
+        provident reprehenderit.', 'dubsane.jpg', 'dubsane@somatik.com', sha2(CONCAT(email, '12345'), 224)),
+        ('Vova PCP', 'Ivanov Ivan Invanovich', 'Consequuntur omnis non qui voluptatem praesentium libero eos non. Quibusdam vitae
+        aperiam inventore itaque sapiente rerum laboriosam accusamus. Non molestiae voluptas nobis possimus est
+        expedita. Impedit repellendus repellat voluptas fugit. In consectetur ipsum qui. Dolorem mollitia voluptatem
+        provident reprehenderit.', 'default.png', 'pcp@somatik.com', sha2(CONCAT(email, '12345'), 224))
+
+
 # create artists
 INSERT INTO artists (nickname, name, info, photo_url)
 VALUES ('Arthur Tourenism', 'Arthur Mikhe Tourenism',

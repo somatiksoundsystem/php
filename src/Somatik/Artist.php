@@ -25,8 +25,11 @@ class Artist extends Base
         $this->created_at = release_date(strtotime($this->created_at));
     }
 
-    public static function resolve(string $idNameOrNickname): Artist
+    public static function resolve(?string $idNameOrNickname): ?Artist
     {
+        if (!$idNameOrNickname) {
+            return null;
+        }
         $stmt = self::DBH()->prepare("SELECT * FROM main.artists WHERE id = :id OR name = :idName OR nickname = :idName");
         $id = intval($idNameOrNickname) ?: -1;
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
@@ -63,5 +66,10 @@ class Artist extends Base
     function getPlayerUrl(): string
     {
         return "https://api.soundcloud.com/tracks/614559213";
+    }
+
+    public function login(string $password): bool
+    {
+        return password_verify($password . $this->email, $password);
     }
 }
