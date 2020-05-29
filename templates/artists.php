@@ -1,5 +1,5 @@
 <?php
-/** @var \Somatik\Artist[] $artists */
+/** @var \App\Artist[] $artists */
 ?>
 <ul class="artists">
     <?php foreach ($artists as $artist): ?>

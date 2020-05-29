@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-use App\Somatik\Artist;
+use App\Artist;
 
 const SESSION_CURRENT_USER = 'current_user';
 

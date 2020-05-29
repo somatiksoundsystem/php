@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-use App\Somatik\Artist;
+use App\Artist;
 
 require_once __DIR__ . '/../src/utils/include.php';
 

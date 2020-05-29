@@ -1,6 +1,6 @@
 <?php
 /**
- * @var \Somatik\Artist $artist
+ * @var \App\Artist $artist
  */
 ?>
 <div class="artist">
@@ -9,20 +9,20 @@
                                                                       alt="<?= h($artist->nickname) ?>" width="300"
                                                                       height="400">
     <div class="artist__social">
-        <?php foreach ($artist->getSocialLinks() as $link): ?>
-            <?= include_template(__DIR__.'/block/social_link.php', ['link' => $link]) ?>
+        <?php foreach ($artist->socialLinks as $link): ?>
+            <?= include_template(__DIR__ . '/block/social_link.php', ['link' => $link]) ?>
         <?php endforeach; ?>
     </div>
     <h1 class="artist__name"><?= h($artist->name) ?></h1>
     <p class="artist__info"><?= h($artist->info) ?></p>
 </div>
-<?= include_template(__DIR__ . '/block/player.php', ['playerUrl' => $artist->getPlayerUrl()]) ?>
+<?= include_template(__DIR__ . '/block/player.php', ['playerUrl' => $artist->playerUrl]) ?>
 <div class="artist__albums">
-    <? print_array($artist->getAlbums(), function ($content) {
-        echo "<ul class=\"albums\">", $content(function ($it) {
-            return include_template(__DIR__ . '/block/album.php', ['album' => $it]);
-        }), "</ul>";
-    }) ?>
+    <ul class="albums">
+        <?php foreach ($artist->albums as $album): ?>
+            <?= include_template(__DIR__ . '/block/album.php', ['album' => $album]) ?>
+        <?php endforeach; ?>
+    </ul>
 </div>
 <p class="artist__schedule"></p>
 <div class="photos__carousel"></div>

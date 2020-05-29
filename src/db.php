@@ -6,12 +6,24 @@ $dbname = getenv('DB_NAME');
 $user = getenv('DB_USER');
 $password = getenv('DB_PASS');
 
-try {
-    # MySQL через PDO_MYSQL
-    $DBH = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);
-    $DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    error_log('Failed to connect to database: ' . $e->getMessage());
-    die();
-}
+use Illuminate\Database\Capsule\Manager as Capsule;
+
+$capsule = new Capsule;
+
+$capsule->addConnection([
+    'driver'    => 'mysql',
+    'host'      => $host,
+    'database'  => $dbname,
+    'username'  => $user,
+    'password'  => $password,
+    'charset'   => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix'    => '',
+]);
+
+// Make this Capsule instance available globally via static methods... (optional)
+$capsule->setAsGlobal();
+
+// Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
+$capsule->bootEloquent();
 

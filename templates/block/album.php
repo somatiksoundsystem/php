@@ -1,6 +1,6 @@
 <?php
 /**
- * @var Somatik\Album $album
+ * @var App\Album $album
  */
 ?>
 <li class="albums__item">
@@ -8,10 +8,8 @@
                                                                               src="/img/albums/thumb/<?= $album->image_url ?>"
                                                                               alt="<?= h($album->name) ?>" width="300"
                                                                               height="300"/>
-        <? print_array($album->getArtists(), function ($content) {
-            echo "<h3 class=\"albums__author\">", $content(function ($it) {
-                return h($it->nickname);
-            }), "</h3>";
-        }) ?>
+        <h3 class="albums__author"><?= $album->authors->map(function ($it) {
+            return h($it->nickname);
+            })->join(', ') ?></h3>
         <h2 class="albums__title"><?= h($album->name) ?></h2></a>
 </li>

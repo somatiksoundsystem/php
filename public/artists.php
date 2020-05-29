@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
 
-use App\Somatik\Artist;
+use App\Artist;
 
 require_once __DIR__ . '/../src/utils/include.php';
 
-render('artists.php', 'Artists', ['artists' => Artist::getAll()]);
+render('artists.php', 'Artists', ['artists' => Artist::all()]);

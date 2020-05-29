@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 /**
- * @var \Somatik\SocialLink $link
+ * @var \App\SocialLink $link
  */
 ?>
 <a class="social-link" target="_blank"
