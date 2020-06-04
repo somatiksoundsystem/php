@@ -1,4 +1,4 @@
-<?
+<?php
 declare(strict_types=1);
 
 define('__ROOT__', __DIR__);

@@ -1,4 +1,4 @@
-<?
+<?php
 declare(strict_types=1);
 
 // Set default timezone to Europe/Moscow
