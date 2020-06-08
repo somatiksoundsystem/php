@@ -2,7 +2,9 @@
 declare(strict_types=1);
 
 
-use App\Album;
+use App\Model\Album;
+
+;
 
 require_once __DIR__ . '/../src/utils/include.php';
 

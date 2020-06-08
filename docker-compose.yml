@@ -9,7 +9,7 @@ services:
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=admin
     volumes:
-      - ./data/mysql:/var/lib/mysql
+      - ../somatik-laravel/.docker/mysql/data:/var/lib/mysql
     # Uses port 3306
     ports:
       - 3306:3306

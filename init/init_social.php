@@ -2,11 +2,14 @@
 //var_dump($_SERVER);
 //var_dump($_GET);
 
-use App\Album;
-use App\Artist;
-use App\SocialLink;
+use App\Model\Album;
+use App\Model\Artist;
+use App\Model\SocialLink;
 
-function link(string $name, string $value): array {
+;;
+
+function link(string $name, string $value): array
+{
     return ['name' => $name, 'value' => $value];
 }
 

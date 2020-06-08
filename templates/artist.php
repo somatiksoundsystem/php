@@ -1,6 +1,6 @@
 <?php
 /**
- * @var \App\Artist $artist
+ * @var \App\Model\Artist; $artist
  */
 ?>
 <div class="artist">

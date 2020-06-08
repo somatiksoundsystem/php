@@ -1,7 +1,9 @@
 <?php
 declare(strict_types=1);
 
-use App\Artist;
+use App\Model\Artist;
+
+;
 
 const SESSION_CURRENT_USER = 'current_user';
 

@@ -3,8 +3,10 @@
 //var_dump($_GET);
 
 
-use App\Album;
-use App\Artist;
+use App\Model\Album;
+use App\Model\Artist;
+
+;;
 
 $artist = Artist::resolve("Dubsane");
 $album = Album::resolve("Escape");

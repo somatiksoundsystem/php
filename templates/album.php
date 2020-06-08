@@ -1,6 +1,6 @@
 <?php
 /**
- * @var \App\Album $album
+ * @var \App\Model\Album; $album
  */
 ?>
 <div class="album">

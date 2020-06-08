@@ -1,6 +1,6 @@
 <?php
 /**
- * @var App\Album $album
+ * @var App\Model\Album; $album
  */
 ?>
 <li class="albums__item">
