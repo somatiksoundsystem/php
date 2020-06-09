@@ -47,6 +47,9 @@
     </style>
 </head>
 <body>
-<div class="flex-center position-ref full-height"></div>
+<div class="flex-center position-ref full-height"><h1>Hello!</h1></div>
+<div class="flex-center position-ref full-height">@php
+        phpinfo()
+    @endphp</div>
 </body>
 </html>
