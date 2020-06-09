@@ -1,33 +1,33 @@
 {
-  "name": "somatik/php",
-  "description": "Somatik PHP site version",
-  "type": "project",
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "git@github.com:somatik-web/laravel.git",
-      "no-api": true
-    }
-  ],
-  "require": {
-    "ext-pdo": "*",
-    "vlucas/phpdotenv": "^4.1",
-    "monolog/monolog": "^2.0",
-    "illuminate/database": "^7.13",
-    "somatik/admin": "dev-master"
-  },
-  "use-github-api": false,
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "autoload": {
-    "psr-4": {
-      "App\\": "src/"
-    }
-  },
-  "authors": [
-    {
-      "name": "Evgenii Shchepotev",
-      "email": "zeckson@ya.ru"
-    }
-  ]
+    "name": "somatik/php",
+    "description": "Somatik PHP site version",
+    "type": "project",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:somatik-web/laravel.git",
+            "no-api": true
+        }
+    ],
+    "require": {
+        "ext-pdo": "*",
+        "vlucas/phpdotenv": "^4.1",
+        "monolog/monolog": "^2.0",
+        "illuminate/database": "^7.13",
+        "laravel/framework": "^7.0"
+    },
+    "use-github-api": false,
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Evgenii Shchepotev",
+            "email": "zeckson@ya.ru"
+        }
+    ]
 }
