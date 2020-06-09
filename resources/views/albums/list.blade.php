@@ -2,6 +2,6 @@
 
 @section('content')
     <ul class="albums">
-        @each('block.album', $albums, 'album');
+        @each('block.album', $albums, 'album')
     </ul>
 @endsection

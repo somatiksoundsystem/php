@@ -8,9 +8,7 @@
              alt="{{ $album->name }}" width="300"
              height="300">
         <div class="album__social">
-            @foreach(\Somatik\Model\SocialLink::VALUES as $linkName)
-                @includeWhen($album->socialLinks[$linkName], 'block.social_link', ['name' => $linkName, 'value' => $album->socialLinks[$linkName]])
-            @endforeach
+            @include('block.social_link', ['socialLinks' => $album->socialLinks])
         </div>
         <h2 class="album__author">
             @foreach($album->authors as $it)

@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 use Somatik\Model\Album;
+use Somatik\Model\Artist;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -59,14 +60,19 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::namespace($this->namespace)
             ->group(function () {
-                Route::get('/', function () {
-                    return view('welcome');
-                });
+                Route::redirect('/', '/artists')->name(self::HOME);
+
                 Route::get('albums/', function () {
                     return view('albums.list', ['albums' => Album::query()->with('authors:nickname')->get()]);
                 });
                 Route::get('album/{nameOrId}', function ($id) {
                     return view('albums.single', ['album' => Album::resolve($id)]);
+                });
+                Route::get('artists/', function () {
+                    return view('artists.list', ['artists' => Artist::all()]);
+                });
+                Route::get('artist/{nameOrId}', function ($id) {
+                    return view('artists.single', ['artist' => Artist::resolve($id)]);
                 });
             });
     }
