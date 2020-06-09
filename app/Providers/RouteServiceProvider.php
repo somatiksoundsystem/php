@@ -62,8 +62,11 @@ class RouteServiceProvider extends ServiceProvider
                 Route::get('/', function () {
                     return view('welcome');
                 });
-                Route::get('/albums', function () {
+                Route::get('albums/', function () {
                     return view('albums.list', ['albums' => Album::query()->with('authors:nickname')->get()]);
+                });
+                Route::get('album/{nameOrId}', function ($id) {
+                    return view('albums.single', ['album' => Album::resolve($id)]);
                 });
             });
     }
