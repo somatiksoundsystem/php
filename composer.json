@@ -14,7 +14,15 @@
         "vlucas/phpdotenv": "^4.1",
         "monolog/monolog": "^2.0",
         "illuminate/database": "^7.13",
-        "laravel/framework": "^7.0"
+        "laravel/framework": "^7.0",
+        "somatik/admin": "dev-master"
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": [
+                "*"
+            ]
+        }
     },
     "use-github-api": false,
     "minimum-stability": "dev",

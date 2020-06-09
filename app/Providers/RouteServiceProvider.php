@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
+use Somatik\Model\Album;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -60,6 +61,9 @@ class RouteServiceProvider extends ServiceProvider
             ->group(function () {
                 Route::get('/', function () {
                     return view('welcome');
+                });
+                Route::get('/albums', function () {
+                    return view('albums.list', ['albums' => Album::query()->with('authors:nickname')->get()]);
                 });
             });
     }
