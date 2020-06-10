@@ -6,6 +6,7 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Support\Facades\Route;
 use Somatik\Model\Album;
 use Somatik\Model\Artist;
+use Somatik\Model\NewsItem;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -74,6 +75,9 @@ class RouteServiceProvider extends ServiceProvider
                 });
                 Route::get('artist/{nameOrId}', function ($id) {
                     return view('artists.single', ['artist' => Artist::resolve($id)]);
+                });
+                Route::get('news/', function () {
+                    return view('news.list', ['news' => NewsItem::query()->with('author')->get()]);
                 });
             });
     }

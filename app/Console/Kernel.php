@@ -3,8 +3,13 @@
 namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Foundation\Console\ClearCompiledCommand;
+use Illuminate\Foundation\Console\ConfigCacheCommand;
+use Illuminate\Foundation\Console\ConfigClearCommand;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Foundation\Console\PackageDiscoverCommand;
 use Illuminate\Foundation\Console\ServeCommand;
+use Illuminate\Foundation\Console\VendorPublishCommand;
 
 class Kernel extends ConsoleKernel
 {
@@ -14,7 +19,12 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        ServeCommand::class
+        ServeCommand::class,
+        VendorPublishCommand::class,
+        ClearCompiledCommand::class,
+        ConfigCacheCommand::class,
+        ConfigClearCommand::class,
+        PackageDiscoverCommand::class,
     ];
 
     /**
