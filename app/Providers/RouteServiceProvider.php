@@ -60,11 +60,12 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::namespace($this->namespace)
             ->group(function () {
-                Route::redirect('/', '/artists')->name(self::HOME);
-
-                Route::get('albums/', function () {
+                $renderAlbums = function () {
                     return view('albums.list', ['albums' => Album::query()->with('authors:nickname')->get()]);
-                });
+                };
+                Route::get('/', $renderAlbums)->name(self::HOME);
+
+                Route::get('albums/', $renderAlbums);
                 Route::get('album/{nameOrId}', function ($id) {
                     return view('albums.single', ['album' => Album::resolve($id)]);
                 });
