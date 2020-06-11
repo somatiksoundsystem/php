@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use Illuminate\Cache\Console\ClearCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\ClearCompiledCommand;
 use Illuminate\Foundation\Console\ConfigCacheCommand;
@@ -33,6 +34,7 @@ class Kernel extends ConsoleKernel
         ViewCacheCommand::class,
         ViewClearCommand::class,
         OptimizeCommand::class,
+        ClearCommand::class
     ];
 
     /**
