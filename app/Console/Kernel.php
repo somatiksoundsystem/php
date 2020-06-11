@@ -13,6 +13,7 @@ use Illuminate\Foundation\Console\ServeCommand;
 use Illuminate\Foundation\Console\StorageLinkCommand;
 use Illuminate\Foundation\Console\VendorPublishCommand;
 use Illuminate\Foundation\Console\ViewCacheCommand;
+use Illuminate\Foundation\Console\ViewClearCommand;
 
 class Kernel extends ConsoleKernel
 {
@@ -30,6 +31,7 @@ class Kernel extends ConsoleKernel
         PackageDiscoverCommand::class,
         StorageLinkCommand::class,
         ViewCacheCommand::class,
+        ViewClearCommand::class,
         OptimizeCommand::class,
     ];
 
