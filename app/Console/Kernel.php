@@ -7,9 +7,12 @@ use Illuminate\Foundation\Console\ClearCompiledCommand;
 use Illuminate\Foundation\Console\ConfigCacheCommand;
 use Illuminate\Foundation\Console\ConfigClearCommand;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Foundation\Console\OptimizeCommand;
 use Illuminate\Foundation\Console\PackageDiscoverCommand;
 use Illuminate\Foundation\Console\ServeCommand;
+use Illuminate\Foundation\Console\StorageLinkCommand;
 use Illuminate\Foundation\Console\VendorPublishCommand;
+use Illuminate\Foundation\Console\ViewCacheCommand;
 
 class Kernel extends ConsoleKernel
 {
@@ -25,6 +28,9 @@ class Kernel extends ConsoleKernel
         ConfigCacheCommand::class,
         ConfigClearCommand::class,
         PackageDiscoverCommand::class,
+        StorageLinkCommand::class,
+        ViewCacheCommand::class,
+        OptimizeCommand::class,
     ];
 
     /**
