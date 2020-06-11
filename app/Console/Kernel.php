@@ -34,7 +34,6 @@ class Kernel extends ConsoleKernel
         ViewCacheCommand::class,
         ViewClearCommand::class,
         OptimizeCommand::class,
-        ClearCommand::class
     ];
 
     /**
