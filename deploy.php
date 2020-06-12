@@ -17,16 +17,10 @@ set('repository', 'git@github.com:somatik-web/php.git');
 // [Optional] Allocate tty for git clone. Default value is false.
 set('git_tty', true);
 
-// Shared files/dirs between deploys
-add('shared_files', []);
-add('shared_dirs', []);
-
-// Writable dirs by web server
-add('writable_dirs', []);
 set('allow_anonymous_stats', false);
 
-set('writable_use_sudo', false);
-set('writable_mode', 'chmod');
+set('writable_use_sudo', true);
+set('writable_mode', 'chown');
 
 // Hosts
 
