@@ -3,6 +3,11 @@ namespace Deployer;
 
 require 'recipe/laravel.php';
 
+// Laravel writable dirs
+set('writable_dirs', [
+    'bootstrap/cache',
+]);
+
 // Project name
 set('application', 'somatiksoundsystem.com');
 
@@ -51,9 +56,7 @@ task('deploy', [
     'deploy:shared',
     'deploy:vendors',
     'deploy:writable',
-    'artisan:storage:link',
     'artisan:view:cache',
-    'artisan:config:cache',
     'deploy:symlink',
     'deploy:unlock',
     'cleanup',
