@@ -3,11 +3,6 @@ namespace Deployer;
 
 require 'recipe/laravel.php';
 
-// Laravel writable dirs
-set('writable_dirs', [
-    'bootstrap/cache',
-]);
-
 // Project name
 set('application', 'somatiksoundsystem.com');
 
@@ -20,6 +15,7 @@ set('git_tty', true);
 set('allow_anonymous_stats', false);
 
 set('writable_use_sudo', true);
+set('cleanup_use_sudo', true);
 set('writable_mode', 'chown');
 
 // Hosts
@@ -30,6 +26,7 @@ host('somatiksoundsystem.com')
 
 // Tasks
 
+// NPM tasks
 task('npm:install', function () {
     run('cd {{release_path}}/static && npm i');
 });
@@ -49,8 +46,8 @@ task('deploy', [
     'npm:run:build',
     'deploy:shared',
     'deploy:vendors',
-    'deploy:writable',
     'artisan:view:cache',
+    'deploy:writable',
     'deploy:symlink',
     'deploy:unlock',
     'cleanup',
